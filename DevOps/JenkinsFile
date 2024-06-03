@@ -11,12 +11,15 @@ pipeline {
 
                 checkout scm 
                 echo 'Code clone in Workspace /var/lib/jenkins/workspace'
+
+                echo 'Python and Pip version '
+                sh 'python3 --version'
+                sh 'pip3 --version'
             }
         }
 
         stage("python3"){
             steps{
-               sh 'python3 --version'
                sh 'python3 lambda-dunction.py'
             }
         }

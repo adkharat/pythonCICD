@@ -43,7 +43,7 @@ pipeline {
                 // withPythonEnv('venv/bin/python'){
                 //     sh("python3 lambda-dunction.py") 
                 // }
-                docker.image("httpd:2.4-alpine").run('-d -p 80:80')
+                // docker.image("httpd:2.4-alpine").run('-d -p 80:80')
             echo 'Done with build'
             }
         }

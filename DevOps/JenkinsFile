@@ -21,7 +21,7 @@ pipeline {
 
         stage("python3"){
             steps{
-                withPythonEnv('path_to_venv/bin'){
+                withPythonEnv('/usr/bin/python3.10'){
                     sh("python3 lambda-dunction.py") 
                 }
             echo 'Done with build'

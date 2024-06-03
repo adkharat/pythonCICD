@@ -2,11 +2,6 @@ pipeline {
 
     agent any
 
-    environment {
-        EMAIL_TO = 'ajay.dilip@kickdrumtech.com'
-        EMAIL_CC = 'ajaykharat17@gmail.com'
-    }
-
     stages {
 
         stage('CleanWorkspace and Clone') {
@@ -33,16 +28,5 @@ pipeline {
                 sh "ls -la"
             }
         }
-
-        
-
-
-
-
-
-
-
-    }
-
-    
+    }    
 }

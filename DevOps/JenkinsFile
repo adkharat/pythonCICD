@@ -24,7 +24,7 @@ pipeline {
                 withPythonEnv('path_to_venv/bin'){
                     sh("python3 lambda-dunction.py") 
                 }
-            //    sh 'python3 lambda-dunction.py'
+            echo 'Done with build'
             }
         }
 

@@ -9,15 +9,11 @@ pipeline {
 
     stages {
 
-        stage('CleanWorkspace') {
+        stage('CleanWorkspace and Clone') {
             steps {
                 cleanWs()
                 echo 'Workspace cleaned /var/lib/jenkins/workspace'
-            }
-        }
 
-        stage("Clone"){
-            steps{
                 checkout scm 
                 echo 'Code clone in Workspace /var/lib/jenkins/workspace'
             }
@@ -26,6 +22,7 @@ pipeline {
         stage("python3"){
             steps{
                sh 'python3 --version'
+               sh 'python3 lambda-dunction.py'
             }
         }
 

@@ -1,0 +1,45 @@
+pipeline {
+
+    agent any
+
+    environment {
+        EMAIL_TO = 'ajay.dilip@kickdrumtech.com'
+        EMAIL_CC = 'ajaykharat17@gmail.com'
+    }
+
+    stages {
+
+        stage('CleanWorkspace') {
+            steps {
+                cleanWs()
+                echo 'Workspace cleaned /var/lib/jenkins/workspace'
+            }
+        }
+
+        stage("Clone"){
+            steps{
+                checkout scm 
+                echo 'Code clone in Workspace /var/lib/jenkins/workspace'
+            }
+        }
+
+        stage("Gradle build"){
+            steps{
+                echo 'Generating the Gradle build in build/lib/ folder' //https://tomgregory.com/gradle/gradle-assemble-task-essentials/
+                sh "pwd"
+                sh "ls -la"
+            }
+        }
+
+        
+
+
+
+
+
+
+
+    }
+
+    
+}

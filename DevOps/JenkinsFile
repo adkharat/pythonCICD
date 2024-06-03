@@ -21,7 +21,10 @@ pipeline {
 
         stage("python3"){
             steps{
-               sh 'python3 lambda-dunction.py'
+                withPythonEnv('path_to_venv/bin'){
+                    sh("python3 lambda-dunction.py") 
+                }
+            //    sh 'python3 lambda-dunction.py'
             }
         }
 

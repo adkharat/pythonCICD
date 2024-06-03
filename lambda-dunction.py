@@ -1,4 +1,4 @@
-import boto3
+# import boto3
 
 # Function to add two numbers
 def add_numbers(num1, num2):

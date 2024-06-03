@@ -2,6 +2,10 @@ pipeline {
 
     agent any
 
+    agent {
+        docker { image 'python:3' }
+    }
+
     stages {
 
         stage('CleanWorkspace and Clone') {
@@ -15,19 +19,19 @@ pipeline {
                 echo 'Python and Pip version '
                 sh 'python3 --version'
                 // sh 'command -v pip3 || sudo apt-get update && sudo apt-get install -y python3-pip'
-                // sh 'pip3 --version'
+                sh 'pip3 --version'
             }
         }
 
         stage("python3"){
             steps{
-                sh 'apt install -y python3-venv'
-                sh 'python3 -m venv venv'
-                sh 'source venv/bin/activate'
-                sh 'which python'
-                withPythonEnv('venv/bin/python'){
-                    sh("python3 lambda-dunction.py") 
-                }
+                // sh 'apt install -y python3-venv'
+                // sh 'python3 -m venv venv'
+                // sh 'source venv/bin/activate'
+                // sh 'which python'
+                // withPythonEnv('venv/bin/python'){
+                //     sh("python3 lambda-dunction.py") 
+                // }
             echo 'Done with build'
             }
         }

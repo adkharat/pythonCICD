@@ -23,7 +23,7 @@ pipeline {
             }
         }
 
-        stage("Clone"){
+        stage("python3"){
             steps{
                sh 'python3 version'
             }

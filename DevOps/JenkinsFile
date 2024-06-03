@@ -1,59 +1,70 @@
 pipeline {
 
-    agent any
-
+    agent {
+        docker { image 'node:7-alpine' }
+    }
     stages {
-
-        stage('CleanWorkspace and Clone') {
+        stage('Test') {
             steps {
-                cleanWs()
-                echo 'Workspace cleaned /var/lib/jenkins/workspace'
-
-                checkout scm 
-                echo 'Code clone in Workspace /var/lib/jenkins/workspace'
-
-                echo 'Python and Pip version '
-                sh 'python3 --version'
-                // sh 'command -v pip3 || sudo apt-get update && sudo apt-get install -y python3-pip'
-                // sh 'pip3 --version'
+                sh 'node --version'
             }
         }
+    }
 
-        stage('Build') {
-            agent {
-                docker {
-                    image 'gradle:8.2.0-jdk17-alpine'
-                    // Run the container on the node specified at the
-                    // top-level of the Pipeline, in the same workspace,
-                    // rather than on a new node entirely:
-                    reuseNode true
-                }
-            }
-            steps {
-                sh 'gradle --version'
-            }
-        }
+    // agent any
 
-        stage("python3"){
-            steps{
-                // sh 'apt install -y python3-venv'
-                // sh 'python3 -m venv venv'
-                // sh 'source venv/bin/activate'
-                // sh 'which python'
-                // withPythonEnv('venv/bin/python'){
-                //     sh("python3 lambda-dunction.py") 
-                // }
-                // docker.image("httpd:2.4-alpine").run('-d -p 80:80')
-            echo 'Done with build'
-            }
-        }
+    // stages {
 
-        stage("build"){
-            steps{
-                echo 'Generating the Gradle build in build/lib/ folder'
-                sh "pwd"
-                sh "ls -la"
-            }
-        }
-    }    
+    //     stage('CleanWorkspace and Clone') {
+    //         steps {
+    //             cleanWs()
+    //             echo 'Workspace cleaned /var/lib/jenkins/workspace'
+
+    //             checkout scm 
+    //             echo 'Code clone in Workspace /var/lib/jenkins/workspace'
+
+    //             echo 'Python and Pip version '
+    //             sh 'python3 --version'
+    //             // sh 'command -v pip3 || sudo apt-get update && sudo apt-get install -y python3-pip'
+    //             // sh 'pip3 --version'
+    //         }
+    //     }
+
+    //     stage('Build') {
+    //         agent {
+    //             docker {
+    //                 image 'gradle:8.2.0-jdk17-alpine'
+    //                 // Run the container on the node specified at the
+    //                 // top-level of the Pipeline, in the same workspace,
+    //                 // rather than on a new node entirely:
+    //                 reuseNode true
+    //             }
+    //         }
+    //         steps {
+    //             sh 'gradle --version'
+    //         }
+    //     }
+
+    //     stage("python3"){
+    //         steps{
+    //             // sh 'apt install -y python3-venv'
+    //             // sh 'python3 -m venv venv'
+    //             // sh 'source venv/bin/activate'
+    //             // sh 'which python'
+    //             // withPythonEnv('venv/bin/python'){
+    //             //     sh("python3 lambda-dunction.py") 
+    //             // }
+    //             // docker.image("httpd:2.4-alpine").run('-d -p 80:80')
+    //         echo 'Done with build'
+    //         }
+    //     }
+
+    //     stage("build"){
+    //         steps{
+    //             echo 'Generating the Gradle build in build/lib/ folder'
+    //             sh "pwd"
+    //             sh "ls -la"
+    //         }
+    //     }
+    // }    
 }

@@ -21,10 +21,11 @@ pipeline {
 
         stage("python3"){
             steps{
+                sh 'sudo apt install -y python3-venv'
                 sh 'python3 -m venv venv'
                 sh 'source venv/bin/activate'
                 sh 'which python'
-                withPythonEnv('/usr/bin/python3.10'){
+                withPythonEnv('venv/bin/python'){
                     sh("python3 lambda-dunction.py") 
                 }
             echo 'Done with build'

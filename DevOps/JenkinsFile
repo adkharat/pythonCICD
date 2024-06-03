@@ -23,9 +23,15 @@ pipeline {
             }
         }
 
-        stage("Gradle build"){
+        stage("Clone"){
             steps{
-                echo 'Generating the Gradle build in build/lib/ folder' //https://tomgregory.com/gradle/gradle-assemble-task-essentials/
+               sh 'python3 version'
+            }
+        }
+
+        stage("build"){
+            steps{
+                echo 'Generating the Gradle build in build/lib/ folder'
                 sh "pwd"
                 sh "ls -la"
             }

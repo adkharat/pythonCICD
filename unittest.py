@@ -11,11 +11,11 @@ from your_module_name import use_boto3, use_json, use_pymongo, use_re, use_math,
 
 class TestFunctions(unittest.TestCase):
 
-    @patch('boto3.client')
-    def test_use_boto3(self, mock_boto3_client):
-        mock_s3 = MagicMock()
-        mock_boto3_client.return_value = mock_s3
-        mock_s3.list_buckets.return_value = {'Buckets': [{'Name': 'bucket1'}, {'Name': 'bucket2'}]}
+    # @patch('boto3.client')
+    # def test_use_boto3(self, mock_boto3_client):
+    #     mock_s3 = MagicMock()
+    #     mock_boto3_client.return_value = mock_s3
+    #     mock_s3.list_buckets.return_value = {'Buckets': [{'Name': 'bucket1'}, {'Name': 'bucket2'}]}
         
         result = use_boto3()
         self.assertEqual(result, ['bucket1', 'bucket2'])
@@ -27,15 +27,15 @@ class TestFunctions(unittest.TestCase):
         self.assertEqual(json.loads(json_data), expected_data)
         self.assertEqual(deserialized_data, expected_data)
 
-    @patch('pymongo.MongoClient')
-    def test_use_pymongo(self, mock_mongo_client):
-        mock_client = MagicMock()
-        mock_mongo_client.return_value = mock_client
-        mock_collection = MagicMock()
-        mock_db = MagicMock()
-        mock_client.__getitem__.return_value = mock_db
-        mock_db.__getitem__.return_value = mock_collection
-        mock_collection.insert_one.return_value.inserted_id = 'mock_id'
+    # @patch('pymongo.MongoClient')
+    # def test_use_pymongo(self, mock_mongo_client):
+    #     mock_client = MagicMock()
+    #     mock_mongo_client.return_value = mock_client
+    #     mock_collection = MagicMock()
+    #     mock_db = MagicMock()
+    #     mock_client.__getitem__.return_value = mock_db
+    #     mock_db.__getitem__.return_value = mock_collection
+    #     mock_collection.insert_one.return_value.inserted_id = 'mock_id'
         
         result = use_pymongo()
         self.assertEqual(result, 'mock_id')

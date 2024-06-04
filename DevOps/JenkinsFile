@@ -31,35 +31,29 @@ pipeline {
                 sh 'pip3 --version'
             }
         }
-    }
-    //     stage('Build') {
-    //         agent {
-    //             docker {
-    //                 image 'gradle:8.2.0-jdk17-alpine'
-    //                 // Run the container on the node specified at the
-    //                 // top-level of the Pipeline, in the same workspace,
-    //                 // rather than on a new node entirely:
-    //                 reuseNode true
-    //             }
-    //         }
-    //         steps {
-    //             sh 'gradle --version'
-    //         }
-    //     }
 
-    //     stage("python3"){
-    //         steps{
-    //             // sh 'apt install -y python3-venv'
-    //             // sh 'python3 -m venv venv'
-    //             // sh 'source venv/bin/activate'
-    //             // sh 'which python'
-    //             // withPythonEnv('venv/bin/python'){
-    //             //     sh("python3 lambda-dunction.py") 
-    //             // }
-    //             // docker.image("httpd:2.4-alpine").run('-d -p 80:80')
-    //         echo 'Done with build'
-    //         }
-    //     }
+        stage('Build') {
+            steps {
+                sh 'python3 lambda-dunction.py'
+            }
+        }
+
+    }
+ 
+
+        // stage("python3 build"){
+        //     steps{
+        //         // sh 'apt install -y python3-venv'
+        //         // sh 'python3 -m venv venv'
+        //         // sh 'source venv/bin/activate'
+        //         // sh 'which python'
+        //         // withPythonEnv('venv/bin/python'){
+        //         //     sh("python3 lambda-dunction.py") 
+        //         // }
+        //         // docker.image("httpd:2.4-alpine").run('-d -p 80:80')
+        //     echo 'Done with build'
+        //     }
+        // }
 
     //     stage("build"){
     //         steps{

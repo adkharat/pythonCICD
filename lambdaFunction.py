@@ -48,9 +48,9 @@ def use_math():
 def use_datetime():
     # Example function that gets the current date and time and formats it
     now = datetime.datetime.now()
-    formatted_date = now.strftime("%Y")
-    print(f"datetime - Current Date and Time: {formatted_date}")
-    return formatted_date
+    formatted_year = now.strftime("%Y")
+    print(f"formatted_year --- : {formatted_year}")
+    return formatted_year
 
 if __name__ == "__main__":
     # use_boto3()

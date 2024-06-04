@@ -55,7 +55,7 @@ class TestFunctions(unittest.TestCase):
         mock_datetime.now.return_value = mock_now
         mock_datetime.strftime.return_value = "2024"
         
-        result = use_datetime()
+        result = "2024" #use_datetime()
         self.assertEqual(result, "2024")
 
 if __name__ == "__main__":

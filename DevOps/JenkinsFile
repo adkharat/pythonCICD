@@ -49,41 +49,14 @@ pipeline {
             }
         }
 
-        // stage('') {
-        //     steps {
-        //         sh 'pip3 install -r requirements.txt'
-        //     }
-        // }
-
         stage('Build') {
             steps {
-                sh 'python3 lambda-dunction.py'
+                    // Activate the virtual environment and install requirements
+                    sh '''
+                    . ./venv/bin/activate
+                    python3 lambda-dunction.py
+                    '''
             }
         }
-
-    }
- 
-
-        // stage("python3 build"){
-        //     steps{
-        //         // sh 'apt install -y python3-venv'
-        //         // sh 'python3 -m venv venv'
-        //         // sh 'source venv/bin/activate'
-        //         // sh 'which python'
-        //         // withPythonEnv('venv/bin/python'){
-        //         //     sh("python3 lambda-dunction.py") 
-        //         // }
-        //         // docker.image("httpd:2.4-alpine").run('-d -p 80:80')
-        //     echo 'Done with build'
-        //     }
-        // }
-
-    //     stage("build"){
-    //         steps{
-    //             echo 'Generating the Gradle build in build/lib/ folder'
-    //             sh "pwd"
-    //             sh "ls -la"
-    //         }
-    //     }
-    // }    
+    } 
 }

@@ -2,19 +2,6 @@ pipeline {
 
    agent any
    
-    // stages {
-    //     stage('Test') {
-    //         steps {
-    //             script { 
-    //                 docker.image('node:12.16.2').run('-d -p 3000:3000')  
-    //                 } 
-    //             sh 'node --version'
-    //         }
-    //     }
-    // }
-
-    // agent any
-
     stages {
 
         stage('CleanWorkspace and Clone') {
@@ -51,10 +38,10 @@ pipeline {
 
         stage('Build') {
             steps {
-                    // Activate the virtual environment and install requirements
+                    // Activate the virtual environment and run the program
                     sh '''
                     . ./venv/bin/activate
-                    python3 lambda-dunction.py
+                    python3 lambda-function.py
                     '''
             }
         }

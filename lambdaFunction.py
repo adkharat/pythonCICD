@@ -13,6 +13,7 @@ def use_json():
     print(f"JSON - Serialized Data: {json_data}")
     deserialized_data = json.loads(json_data)
     print(f"JSON - Deserialized Data: {deserialized_data}")
+    return json_data, deserialized_data
 
 def use_pymongo():
     # Example function that connects to a MongoDB database and inserts a document
@@ -23,6 +24,7 @@ def use_pymongo():
         document = {"name": "Bob", "age": 25, "city": "Builderland"}
         result = collection.insert_one(document)
         print(f"Pymongo - Inserted Document ID: {result.inserted_id}")
+        return result.inserted_id
     except pymongo.errors.ServerSelectionTimeoutError as err:
         print(f"Pymongo - Could not connect to MongoDB: {err}")
 
@@ -32,6 +34,7 @@ def use_re():
     pattern = r'\d+'
     numbers = re.findall(pattern, text)
     print(f"re - Numbers in text: {numbers}")
+    return numbers
 
 def use_math():
     # Example function that calculates the square root and the factorial of a number
@@ -40,12 +43,14 @@ def use_math():
     factorial = math.factorial(number)
     print(f"math - Square Root of {number}: {sqrt}")
     print(f"math - Factorial of {number}: {factorial}")
+    return sqrt_val, factorial_val
 
 def use_datetime():
     # Example function that gets the current date and time and formats it
     now = datetime.datetime.now()
-    formatted_now = now.strftime("%Y-%m-%d %H:%M:%S")
-    print(f"datetime - Current Date and Time: {formatted_now}")
+    formatted_date = now.strftime("%Y-%m-%d %H:%M:%S")
+    print(f"datetime - Current Date and Time: {formatted_date}")
+    return formatted_date
 
 if __name__ == "__main__":
     # use_boto3()

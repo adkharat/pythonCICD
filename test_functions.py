@@ -7,7 +7,7 @@ import math
 import datetime
 
 # Import the functions from the module
-from your_module_name import use_boto3, use_json, use_pymongo, use_re, use_math, use_datetime
+from lambdaFunction import use_boto3, use_json, use_pymongo, use_re, use_math, use_datetime
 
 class TestFunctions(unittest.TestCase):
 

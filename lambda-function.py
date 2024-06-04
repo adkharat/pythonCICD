@@ -6,18 +6,56 @@ import math
 import datetime
 # json, re, math, and datetime are standard Python modules that come with the Python standard library, so they do not need to be installed.
 
-# Function to add two numbers
-def add_numbers(num1, num2):
-    return num1 + num2
+def use_boto3():
+    # Example function that lists S3 buckets using boto3
+    s3 = boto3.client('s3')
+    response = s3.list_buckets()
+    print("Boto3 - List of S3 Buckets:")
+    for bucket in response['Buckets']:
+        print(f"  {bucket['Name']}")
 
-# Main program
+def use_json():
+    # Example function that serializes and deserializes JSON
+    data = {"name": "Alice", "age": 30, "city": "Wonderland"}
+    json_data = json.dumps(data)
+    print(f"JSON - Serialized Data: {json_data}")
+    deserialized_data = json.loads(json_data)
+    print(f"JSON - Deserialized Data: {deserialized_data}")
+
+def use_pymongo():
+    # Example function that connects to a MongoDB database and inserts a document
+    client = pymongo.MongoClient("mongodb://localhost:27017/")
+    db = client["testdb"]
+    collection = db["testcollection"]
+    document = {"name": "Bob", "age": 25, "city": "Builderland"}
+    result = collection.insert_one(document)
+    print(f"Pymongo - Inserted Document ID: {result.inserted_id}")
+
+def use_re():
+    # Example function that uses regex to find all numbers in a string
+    text = "The price is 123 dollars and 45 cents"
+    pattern = r'\d+'
+    numbers = re.findall(pattern, text)
+    print(f"re - Numbers in text: {numbers}")
+
+def use_math():
+    # Example function that calculates the square root and the factorial of a number
+    number = 16
+    sqrt = math.sqrt(number)
+    factorial = math.factorial(number)
+    print(f"math - Square Root of {number}: {sqrt}")
+    print(f"math - Factorial of {number}: {factorial}")
+
+def use_datetime():
+    # Example function that gets the current date and time and formats it
+    now = datetime.datetime.now()
+    formatted_now = now.strftime("%Y-%m-%d %H:%M:%S")
+    print(f"datetime - Current Date and Time: {formatted_now}")
+
 if __name__ == "__main__":
-    # Get input from the user
-    # num1 = float(input("Enter the first number: "))
-    # num2 = float(input("Enter the second number: "))
-
-    # Calculate the sum
-    result = add_numbers(2, 3)
-
-    # Print the result
-    print(f"The sum of 2 and 3 is {result}")
+    # use_boto3()
+    use_json()
+    use_pymongo()
+    use_re()
+    use_math()
+    use_datetime()

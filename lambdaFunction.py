@@ -41,8 +41,8 @@ def use_math():
     number = 16
     sqrt_val = math.sqrt(number)
     factorial_val = math.factorial(number)
-    print(f"math - Square Root of {number}: {sqrt}")
-    print(f"math - Factorial of {number}: {factorial}")
+    print(f"math - Square Root of {number}: {sqrt_val}")
+    print(f"math - Factorial of {number}: {factorial_val}")
     return sqrt_val, factorial_val
 
 def use_datetime():

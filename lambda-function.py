@@ -6,14 +6,6 @@ import math
 import datetime
 # json, re, math, and datetime are standard Python modules that come with the Python standard library, so they do not need to be installed.
 
-def use_boto3():
-    # Example function that lists S3 buckets using boto3
-    s3 = boto3.client('s3')
-    response = s3.list_buckets()
-    print("Boto3 - List of S3 Buckets:")
-    for bucket in response['Buckets']:
-        print(f"  {bucket['Name']}")
-
 def use_json():
     # Example function that serializes and deserializes JSON
     data = {"name": "Alice", "age": 30, "city": "Wonderland"}
@@ -24,12 +16,15 @@ def use_json():
 
 def use_pymongo():
     # Example function that connects to a MongoDB database and inserts a document
-    client = pymongo.MongoClient("mongodb://localhost:27017/")
-    db = client["testdb"]
-    collection = db["testcollection"]
-    document = {"name": "Bob", "age": 25, "city": "Builderland"}
-    result = collection.insert_one(document)
-    print(f"Pymongo - Inserted Document ID: {result.inserted_id}")
+    try:
+        client = pymongo.MongoClient("mongodb://localhost:27017/")
+        db = client["testdb"]
+        collection = db["testcollection"]
+        document = {"name": "Bob", "age": 25, "city": "Builderland"}
+        result = collection.insert_one(document)
+        print(f"Pymongo - Inserted Document ID: {result.inserted_id}")
+    except pymongo.errors.ServerSelectionTimeoutError as err:
+        print(f"Pymongo - Could not connect to MongoDB: {err}")
 
 def use_re():
     # Example function that uses regex to find all numbers in a string
@@ -55,7 +50,7 @@ def use_datetime():
 if __name__ == "__main__":
     # use_boto3()
     use_json()
-    use_pymongo()
+    # use_pymongo()
     use_re()
     use_math()
     use_datetime()

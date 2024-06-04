@@ -4,10 +4,13 @@
 sudo apt-get update
 
 #Install Python
-sudo apt-get install python3.10
+sudo apt-get install python3.10 -y
 
 #Install Pip3
-sudo apt-get install -y python3-pip
+sudo apt-get install python3-pip -y
+
+#Install venv
+sudo apt-get install python3.10-venv -y
 
 #install OpenJDK 17
 sudo apt-get install openjdk-17-jre -y

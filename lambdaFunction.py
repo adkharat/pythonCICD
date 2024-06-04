@@ -39,8 +39,8 @@ def use_re():
 def use_math():
     # Example function that calculates the square root and the factorial of a number
     number = 16
-    sqrt = math.sqrt(number)
-    factorial = math.factorial(number)
+    sqrt_val = math.sqrt(number)
+    factorial_val = math.factorial(number)
     print(f"math - Square Root of {number}: {sqrt}")
     print(f"math - Factorial of {number}: {factorial}")
     return sqrt_val, factorial_val

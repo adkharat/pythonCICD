@@ -48,7 +48,7 @@ def use_math():
 def use_datetime():
     # Example function that gets the current date and time and formats it
     now = datetime.datetime.now()
-    formatted_date = now.strftime("%Y-%m-%d %H:%M:%S")
+    formatted_date = now.strftime("%Y")
     print(f"datetime - Current Date and Time: {formatted_date}")
     return formatted_date
 

@@ -51,12 +51,12 @@ class TestFunctions(unittest.TestCase):
 
     @patch('datetime.datetime')
     def test_use_datetime(self, mock_datetime):
-        mock_now = datetime.datetime(2024, 6, 4, 12, 34, 56)
+        mock_now = datetime.datetime(2024, 1, 1)
         mock_datetime.now.return_value = mock_now
-        mock_datetime.strftime.return_value = mock_now.strftime("%Y-%m-%d %H:%M:%S")
+        mock_datetime.strftime.return_value = "2024"
         
         result = use_datetime()
-        self.assertEqual(result, "2024-06-04 12:34:56")
+        self.assertEqual(result, "2024")
 
 if __name__ == "__main__":
     unittest.main()

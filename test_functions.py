@@ -57,7 +57,7 @@ class TestFunctions(unittest.TestCase):
         
         result = mock_datetime.strftime.return_value
         print(f"result formatted_year result--- : {result}")
-        self.assertEqual("2024", "2024")
+        self.assertEqual(result, "2024")
 
 if __name__ == "__main__":
     unittest.main()

@@ -5,7 +5,9 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                script { image 'node:12.16.2' args '-p 3000:3000' } 
+                script { 
+                    docker.image('node:12.16.2').run('-d -p 3000:3000')  
+                    } 
                 sh 'node --version'
             }
         }

@@ -1,6 +1,3 @@
 boto3
-json
 pymongo
-re
-math
 datetime

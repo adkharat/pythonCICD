@@ -34,7 +34,7 @@ pipeline {
             }
         }
 
-        stage('Setup Python Environment') {
+        stage('Setup Python Environment and Dependench Installation') {
             steps {
                 script {
                     // Create a virtual environment
@@ -49,11 +49,11 @@ pipeline {
             }
         }
 
-        stage('Dependench Installation') {
-            steps {
-                sh 'pip3 install -r requirements.txt'
-            }
-        }
+        // stage('') {
+        //     steps {
+        //         sh 'pip3 install -r requirements.txt'
+        //     }
+        // }
 
         stage('Build') {
             steps {

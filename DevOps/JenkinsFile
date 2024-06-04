@@ -32,6 +32,12 @@ pipeline {
             }
         }
 
+        stage('Dependench Installation') {
+            steps {
+                sh 'pip3 install -r requirements.txt'
+            }
+        }
+
         stage('Build') {
             steps {
                 sh 'python3 lambda-dunction.py'

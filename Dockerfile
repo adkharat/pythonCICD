@@ -1,5 +1,5 @@
 # base python image for custom image
-FROM python:3.10.14-alpine
+FROM python:3.10.12
 
 # create working directory and install pip dependencies
 WORKDIR /aviatnetbuild

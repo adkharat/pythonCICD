@@ -23,7 +23,9 @@ pipeline {
 
         stage('Build') {
             steps {
+                echo "started docker build image for tag ${env.BUILD_NUMBER}"
                 sh 'docker ps'
+                sh "docker build --no-cache -t adkharat/react-currency-exchange-app-fe:${env.BUILD_NUMBER} ./front-end-react-app"
             }
         }
 

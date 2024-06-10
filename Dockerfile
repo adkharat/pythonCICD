@@ -12,5 +12,7 @@ COPY . .
 # print the contents of the working directory
 RUN ls -la /aviatnetbuild
 
+RUN python3 lambdaFunction.py
+
 # run the lambdaFunction.py file
 CMD ["python3", "lambdaFunction.py"]

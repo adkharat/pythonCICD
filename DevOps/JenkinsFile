@@ -31,6 +31,13 @@ pipeline {
             }
         }
 
+        stage('Deploy') {
+            steps {
+                echo "Running the container for build ${env.BUILD_NUMBER}"
+                sh "docker run adkharat/lambdafunction:${env.BUILD_NUMBER}"
+            }
+        }
+
         // stage('Setup Python Environment and Dependench Installation') {
         //     steps {
         //         script {

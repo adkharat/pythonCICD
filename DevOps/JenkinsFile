@@ -14,8 +14,8 @@ pipeline {
                 checkout scm 
                 echo 'Code clone in Workspace /var/lib/jenkins/workspace'
 
-                echo 'Python and Pip version '
-                sh 'python3 --version'
+                // echo 'Python and Pip version '
+                // sh 'python3 --version'
                 // sh 'command -v pip3 || (sudo apt-get update && sudo apt-get install -y python3-pip)'
                 // sh 'pip3 --version'
             }
@@ -24,6 +24,16 @@ pipeline {
         stage('Build') {
             steps {
                 echo "started docker build image for tag ${env.BUILD_NUMBER}"
+                sh "pwd"
+                sh 'ls -la'
+                sh 'docker ps'
+                sh "docker build --no-cache -t adkharat/lambdafunction:${env.BUILD_NUMBER} ."
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo "Testing docker build image for tag ${env.BUILD_NUMBER}"
                 sh "pwd"
                 sh 'ls -la'
                 sh 'docker ps'

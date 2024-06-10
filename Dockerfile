@@ -10,4 +10,4 @@ RUN pip3 install -r requirements.txt
 COPY . .
 
 # run the lambdaFunction.py file
-CMD [ "python3" "lambdaFunction.py"]
+CMD ["python3", "lambdaFunction.py"]

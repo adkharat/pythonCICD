@@ -27,7 +27,7 @@ pipeline {
                 sh "pwd"
                 sh 'ls -la'
                 sh 'docker ps'
-                sh "docker build --no-cache -t adkharat/lambdafunction:${env.BUILD_NUMBER} -f ./BuildDockerFile"
+                sh "docker build --no-cache -t adkharat/lambdafunction:${env.BUILD_NUMBER} -f ./BuildDockerFile ."
             }
         }
 

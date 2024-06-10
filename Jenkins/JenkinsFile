@@ -37,7 +37,7 @@ pipeline {
                 sh "pwd"
                 sh 'ls -la'
                 sh 'docker ps'
-                sh "docker build --no-cache -t adkharat/testfunctions:${env.BUILD_NUMBER} ./Test"
+                sh "docker build --no-cache -t adkharat/testfunctions:${env.BUILD_NUMBER} -f ./TestDockerFile ."
             }
         }
 

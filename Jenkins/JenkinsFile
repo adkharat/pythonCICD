@@ -28,6 +28,7 @@ pipeline {
                 sh 'ls -la'
                 sh 'docker ps'
                 sh "docker build --no-cache -t adkharat/lambdafunction:${env.BUILD_NUMBER} -f ./BuildDockerFile ."
+                sh "docker run adkharat/lambdafunction:${env.BUILD_NUMBER}"
             }
         }
 
@@ -38,13 +39,7 @@ pipeline {
                 sh 'ls -la'
                 sh 'docker ps'
                 sh "docker build --no-cache -t adkharat/testfunctions:${env.BUILD_NUMBER} -f ./TestDockerFile ."
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo "Running the container for build ${env.BUILD_NUMBER}"
-                sh "docker run adkharat/lambdafunction:${env.BUILD_NUMBER}"
+                sh "docker run adkharat/testfunctions:${env.BUILD_NUMBER}"
             }
         }
 

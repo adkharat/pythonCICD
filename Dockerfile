@@ -9,5 +9,8 @@ RUN pip3 install -r requirements.txt
 # copy python project files from local to /aviatnetbuild image working directory
 COPY . .
 
+# print the contents of the working directory
+RUN ls -la /aviatnetbuild
+
 # run the lambdaFunction.py file
 CMD ["python3", "lambdaFunction.py"]
